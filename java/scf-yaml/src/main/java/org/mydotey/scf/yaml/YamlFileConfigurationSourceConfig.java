@@ -36,10 +36,6 @@ public class YamlFileConfigurationSourceConfig extends DefaultConfigurationSourc
             return (YamlFileConfigurationSourceConfig) super.getConfig();
         }
 
-        /**
-         * @param fileName a Mapping YAML file
-         * @return the builder itself
-         */
         public Builder setFileName(String fileName) {
             getConfig()._fileName = fileName;
             return this;
