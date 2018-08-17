@@ -3,11 +3,28 @@
 ## maven dependency
 
 ```xml
-<dependency>
-    <groupId>org.mydotey.scf</groupId>
-    <artifactId>scf-yaml</artifactId>
-    <version>1.1.1</version>
-</dependency>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.mydotey.scf</groupId>
+                <artifactId>scf-bom</artifactId>
+                <version>1.4.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mydotey.scf</groupId>
+            <artifactId>scf-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mydotey.scf</groupId>
+            <artifactId>scf-yaml</artifactId>
+        </dependency>
+    </dependencies>
 ```
 
 ## Usage
