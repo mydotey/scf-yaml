@@ -46,7 +46,7 @@ public class YamlFileConfigurationSourceConfig extends DefaultConfigurationSourc
             if (!getConfig()._fileName.endsWith(".yaml") && !getConfig()._fileName.endsWith(".yml"))
                 getConfig()._fileName += ".yaml";
 
-            return (YamlFileConfigurationSourceConfig) super.build();
+            return super.build();
         }
 
     }
