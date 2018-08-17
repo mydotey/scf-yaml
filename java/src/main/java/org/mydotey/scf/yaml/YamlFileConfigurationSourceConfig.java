@@ -24,16 +24,12 @@ public class YamlFileConfigurationSourceConfig extends DefaultConfigurationSourc
         return String.format("%s { name: %s, fileName: %s }", getClass().getSimpleName(), getName(), getFileName());
     }
 
-    public static class Builder extends DefaultConfigurationSourceConfig.DefaultAbstractBuilder<Builder> {
+    public static class Builder extends
+            DefaultConfigurationSourceConfig.DefaultAbstractBuilder<Builder, YamlFileConfigurationSourceConfig> {
 
         @Override
         protected YamlFileConfigurationSourceConfig newConfig() {
             return new YamlFileConfigurationSourceConfig();
-        }
-
-        @Override
-        protected YamlFileConfigurationSourceConfig getConfig() {
-            return (YamlFileConfigurationSourceConfig) super.getConfig();
         }
 
         public Builder setFileName(String fileName) {

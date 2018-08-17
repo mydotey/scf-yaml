@@ -19,7 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * 
  * for Mapping YAML File
  */
-public class YamlFileConfigurationSource extends AbstractConfigurationSource {
+public class YamlFileConfigurationSource extends AbstractConfigurationSource<YamlFileConfigurationSourceConfig> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(YamlFileConfigurationSource.class);
 
