@@ -18,4 +18,9 @@
     <ProjectReference Include="..\..\src\MyDotey.SCF.Yaml\MyDotey.SCF.Yaml.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="test.yaml" CopyToOutputDirectory="Always" />
+    <None Include="bad-sequence-test.yaml" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+ 
 </Project>

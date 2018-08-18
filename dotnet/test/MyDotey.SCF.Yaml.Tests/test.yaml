@@ -1,0 +1,13 @@
+booleanProperty: true
+intProperty: 1
+longProperty: 222222222222222222
+stringProperty: s
+listProperty: [ v1, v2 ]
+mapProperty: { k1: v1, k2: v2 }
+objProperty:
+    f1: v1
+    f2: 10
+    f3: 
+        - 1
+        - 2
+        - 3
