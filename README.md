@@ -6,8 +6,9 @@ For Mapping root YAML file only.
 
 ## Usage
 
-* java
-  https://github.com/mydotey/scf-yaml/tree/master/java
+* java: https://github.com/mydotey/scf-yaml/tree/master/java
+
+* dotnet: https://github.com/mydotey/scf-yaml/tree/master/dotnet
 
 ## Developers
 

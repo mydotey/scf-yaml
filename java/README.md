@@ -54,27 +54,31 @@ public void testDemo() {
     YamlFileConfigurationSource source = new YamlFileConfigurationSource(sourceConfig);
 
     // create scf manager & properties facade tool
-    ConfigurationManagerConfig managerConfig = ConfigurationManagers.newConfigBuilder().setName("my-app")
-            .addSource(1, source).build();
+    ConfigurationManagerConfig managerConfig = ConfigurationManagers.newConfigBuilder()
+        .setName("my-app").addSource(1, source).build();
     ConfigurationManager manager = ConfigurationManagers.newManager(managerConfig);
 
-    PropertyConfig<String, Boolean> propertyConfig1 = ConfigurationProperties.<String, Boolean> newConfigBuilder()
-            .setKey("booleanProperty").setValueType(Boolean.class).setDefaultValue(false).build();
+    PropertyConfig<String, Boolean> propertyConfig1 =
+        ConfigurationProperties.<String, Boolean> newConfigBuilder()
+        .setKey("booleanProperty").setValueType(Boolean.class).setDefaultValue(false).build();
     boolean booleanValue = manager.getPropertyValue(propertyConfig1);
     System.out.println(booleanValue);
 
-    PropertyConfig<String, Integer> propertyConfig2 = ConfigurationProperties.<String, Integer> newConfigBuilder()
-            .setKey("intProperty").setValueType(Integer.class).setDefaultValue(0).build();
+    PropertyConfig<String, Integer> propertyConfig2 =
+        ConfigurationProperties.<String, Integer> newConfigBuilder()
+        .setKey("intProperty").setValueType(Integer.class).setDefaultValue(0).build();
     int intValue = manager.getPropertyValue(propertyConfig2);
     System.out.println(intValue);
 
-    PropertyConfig<String, Long> propertyConfig3 = ConfigurationProperties.<String, Long> newConfigBuilder()
-            .setKey("longProperty").setValueType(Long.class).setDefaultValue(0L).build();
+    PropertyConfig<String, Long> propertyConfig3 =
+        ConfigurationProperties.<String, Long> newConfigBuilder()
+        .setKey("longProperty").setValueType(Long.class).setDefaultValue(0L).build();
     long longValue = manager.getPropertyValue(propertyConfig3);
     System.out.println(longValue);
 
-    PropertyConfig<String, String> propertyConfig4 = ConfigurationProperties.<String, String> newConfigBuilder()
-            .setKey("stringProperty").setValueType(String.class).build();
+    PropertyConfig<String, String> propertyConfig4 =
+        ConfigurationProperties.<String, String> newConfigBuilder()
+        .setKey("stringProperty").setValueType(String.class).build();
     String stringValue = manager.getPropertyValue(propertyConfig4);
     System.out.println(stringValue);
 
@@ -92,8 +96,9 @@ public void testDemo() {
     Map<String, String> mapValue = manager.getPropertyValue(propertyConfig6);
     System.out.println(mapValue);
 
-    PropertyConfig<String, TestPojo> propertyConfig7 = ConfigurationProperties.<String, TestPojo> newConfigBuilder()
-            .setKey("objProperty").setValueType(TestPojo.class).build();
+    PropertyConfig<String, TestPojo> propertyConfig7 =
+        ConfigurationProperties.<String, TestPojo> newConfigBuilder()
+        .setKey("objProperty").setValueType(TestPojo.class).build();
     TestPojo objValue = manager.getPropertyValue(propertyConfig7);
     System.out.println(objValue);
 }
