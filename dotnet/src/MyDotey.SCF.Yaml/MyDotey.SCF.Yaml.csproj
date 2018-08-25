@@ -5,7 +5,7 @@
     <AssemblyTitle>MyDotey.SCF.Yaml</AssemblyTitle>
     <AssemblyName>MyDotey.SCF.Yaml</AssemblyName>
     <PackageId>MyDotey.SCF.Yaml</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <Authors>koqizhao</Authors>
     <Description>SCF Yaml Configuration Soruce</Description>
     <Copyright>koqizhao</Copyright>
@@ -21,7 +21,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MyDotey.SCF" Version="1.4.2" />
+    <PackageReference Include="MyDotey.SCF" Version="1.4.3" />
     <PackageReference Include="NLog" Version="4.5.0" />
     <PackageReference Include="YamlDotNet" Version="5.0.1" />
   </ItemGroup>

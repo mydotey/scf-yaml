@@ -3,7 +3,7 @@
 ## NuGet Package
 
 ```sh
-dotnet add package MyDotey.SCF.Yaml -v 1.1.0
+dotnet add package MyDotey.SCF.Yaml -v 1.1.1
 ```
 
 ## Usage
