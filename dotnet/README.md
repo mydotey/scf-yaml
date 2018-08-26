@@ -6,6 +6,12 @@
 dotnet add package MyDotey.SCF.Yaml -v 1.1.1
 ```
 
+Or use a single meta package
+
+```sh
+dotnet add package MyDotey.SCF.Bom -v 1.4.0
+```
+
 ## Usage
 
 ```yaml
