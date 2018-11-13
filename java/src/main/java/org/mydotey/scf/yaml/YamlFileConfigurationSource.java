@@ -26,7 +26,8 @@ public class YamlFileConfigurationSource extends AbstractConfigurationSource<Yam
     private Map<Object, Object> _properties;
     private ObjectMapper _objectMapper;
 
-    public YamlFileConfigurationSource(YamlFileConfigurationSourceConfig config) {
+    @SuppressWarnings("unchecked")
+	public YamlFileConfigurationSource(YamlFileConfigurationSourceConfig config) {
         super(config);
 
         try (InputStream is = Thread.currentThread().getContextClassLoader()
@@ -46,6 +47,7 @@ public class YamlFileConfigurationSource extends AbstractConfigurationSource<Yam
                 return;
             }
 
+            _properties = (Map<Object, Object>) properties;
             _objectMapper = new ObjectMapper();
         } catch (Exception e) {
             LOGGER.warn("failed to load yaml file: " + config.getFileName(), e);
