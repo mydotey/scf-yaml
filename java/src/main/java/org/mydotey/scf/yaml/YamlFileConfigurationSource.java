@@ -26,39 +26,64 @@ public class YamlFileConfigurationSource extends AbstractConfigurationSource<Yam
     private Map<Object, Object> _properties;
     private ObjectMapper _objectMapper;
 
-    @SuppressWarnings("unchecked")
-	public YamlFileConfigurationSource(YamlFileConfigurationSourceConfig config) {
+    public YamlFileConfigurationSource(YamlFileConfigurationSourceConfig config) {
         super(config);
 
-        try (InputStream is = Thread.currentThread().getContextClassLoader()
-                .getResourceAsStream(config.getFileName())) {
-            if (is == null) {
-                _properties = new HashMap<>();
-                LOGGER.warn("file not found: {}", config.getFileName());
-                return;
-            }
+        _objectMapper = newObjectMapper();
 
-            Object properties = new Yaml().load(is);
-            if (properties == null || !(properties instanceof Map)) {
-                _properties = new HashMap<>();
-                LOGGER.error(YamlFileConfigurationSource.class.getSimpleName()
-                        + " only accepts YAML file with Mapping root. Current is Sequence or Scala. YAML file: "
-                        + config.getFileName());
-                return;
-            }
+        init();
+    }
 
+    @SuppressWarnings("unchecked")
+    protected void init() {
+        Object properties = loadYamlProperties();
+        if (checkSupported(properties)) {
             _properties = (Map<Object, Object>) properties;
-            _objectMapper = new ObjectMapper();
-        } catch (Exception e) {
-            LOGGER.warn("failed to load yaml file: " + config.getFileName(), e);
+            return;
         }
+
+        _properties = new HashMap<>();
+    }
+
+    protected Object loadYamlProperties() {
+        try (InputStream is = Thread.currentThread().getContextClassLoader()
+                .getResourceAsStream(getConfig().getFileName())) {
+            if (is == null) {
+                LOGGER.warn("file not found: {}", getConfig().getFileName());
+                return null;
+            }
+
+            return new Yaml().load(is);
+        } catch (Exception e) {
+            LOGGER.warn("failed to load yaml file: " + getConfig().getFileName(), e);
+            return null;
+        }
+    }
+
+    protected boolean checkSupported(Object yamlData) {
+        if (yamlData == null)
+            return false;
+
+        if (yamlData instanceof Map)
+            return true;
+
+        LOGGER.error(this.getClass().getSimpleName()
+                + " only accepts YAML file with Mapping root. Current is Sequence or Scala. YAML file: "
+                + getConfig().getFileName());
+        return false;
+    }
+
+    protected void updateProperties(Map<Object, Object> properties) {
+        _properties = properties == null ? new HashMap<>() : properties;
+        raiseChangeEvent();
+    }
+
+    protected ObjectMapper newObjectMapper() {
+        return new ObjectMapper();
     }
 
     @Override
     protected Object getPropertyValue(Object key) {
-        if (_properties == null)
-            return null;
-
         return _properties.get(key);
     }
 
