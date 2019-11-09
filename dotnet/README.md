@@ -3,13 +3,13 @@
 ## NuGet Package
 
 ```sh
-dotnet add package MyDotey.SCF.Yaml -v 1.2.1
+dotnet add package MyDotey.SCF.Yaml -v 1.6.0
 ```
 
 Or use a single meta package
 
 ```sh
-dotnet add package MyDotey.SCF.Bom -v 1.5.1
+dotnet add package MyDotey.SCF.Bom -v 1.6.0
 ```
 
 ## Usage

@@ -5,23 +5,23 @@
     <AssemblyTitle>MyDotey.SCF.Yaml</AssemblyTitle>
     <AssemblyName>MyDotey.SCF.Yaml</AssemblyName>
     <PackageId>MyDotey.SCF.Yaml</PackageId>
-    <Version>1.2.1</Version>
+    <Version>1.6.0</Version>
     <Authors>koqizhao</Authors>
     <Description>SCF Yaml Configuration Soruce</Description>
     <Copyright>koqizhao</Copyright>
 
     <PackageTags>scf;configuration;facade;yaml</PackageTags>
     <PackageReleaseNotes>SCF Yaml Configuration Soruce</PackageReleaseNotes>
-    <PackageIconUrl>http://numl.net/images/ico.png</PackageIconUrl>
+    <PackageIcon>http://numl.net/images/ico.png</PackageIcon>
     <PackageProjectUrl>https://github.com/mydotey/scf-yaml</PackageProjectUrl>
-    <PackageLicenseUrl>https://opensource.org/licenses/Apache-2.0</PackageLicenseUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/mydotey/scf-yaml.git</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MyDotey.SCF" Version="1.5.1" />
+    <PackageReference Include="MyDotey.SCF" Version="1.6.0" />
     <PackageReference Include="NLog" Version="4.5.0" />
     <PackageReference Include="YamlDotNet" Version="5.0.1" />
   </ItemGroup>

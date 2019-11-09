@@ -24,6 +24,20 @@ public class YamlFileConfigurationSourceTest {
                 .setName("yaml-file").setFileName("test.yaml").build();
         YamlFileConfigurationSource source = new YamlFileConfigurationSource(sourceConfig);
 
+        testDemo(source);
+    }
+
+    @Test
+    public void testDemo2() {
+        // create a scf yaml configuration source
+        YamlFileConfigurationSourceConfig sourceConfig = new YamlFileConfigurationSourceConfig.Builder()
+                .setName("yaml-file").setFileName("local-test.yaml").build();
+        LocalYamlFileConfigurationSource source = new LocalYamlFileConfigurationSource(sourceConfig);
+
+        testDemo(source);
+    }
+
+    protected void testDemo(YamlFileConfigurationSource source) {
         // create scf manager & properties facade tool
         ConfigurationManagerConfig managerConfig = ConfigurationManagers.newConfigBuilder().setName("my-app")
                 .addSource(1, source).build();

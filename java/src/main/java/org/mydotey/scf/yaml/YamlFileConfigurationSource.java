@@ -1,5 +1,6 @@
 package org.mydotey.scf.yaml;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -46,8 +47,7 @@ public class YamlFileConfigurationSource extends AbstractConfigurationSource<Yam
     }
 
     protected Object loadYamlProperties() {
-        try (InputStream is = Thread.currentThread().getContextClassLoader()
-                .getResourceAsStream(getConfig().getFileName())) {
+        try (InputStream is = loadFile(getConfig().getFileName())) {
             if (is == null) {
                 LOGGER.warn("file not found: {}", getConfig().getFileName());
                 return null;
@@ -58,6 +58,10 @@ public class YamlFileConfigurationSource extends AbstractConfigurationSource<Yam
             LOGGER.warn("failed to load yaml file: " + getConfig().getFileName(), e);
             return null;
         }
+    }
+
+    protected InputStream loadFile(String fileName) throws IOException {
+        return Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
     }
 
     protected boolean checkSupported(Object yamlData) {
