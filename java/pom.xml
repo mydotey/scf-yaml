@@ -44,7 +44,7 @@
         <slf4j.version>1.7.21</slf4j.version>
         <scf.version>1.6.4</scf.version>
         <yaml.version>1.21</yaml.version>
-        <jackson.version>2.9.6</jackson.version>
+        <jackson.version>2.12.0</jackson.version>
         <junit.version>4.12</junit.version>
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
